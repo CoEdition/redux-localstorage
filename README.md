@@ -73,7 +73,7 @@ If you're using immutable collections or some other custom collection, redux-loc
 type config.serialize = (subset: Collection) => serializedData: String
 ```
 The default serialization strategy is JSON.stringify. Specifying a serialize function as part of your config will override this.
-This function receives a single argument (the subset of your store's state about to be persisted) and should return a serialized (i.e. stringified) representation thereof. 
+This function receives a single argument (the subset of your store's state about to be persisted) and should return a serialized (i.e. stringified) representation thereof.
 
 ##### config.deserialize
 ```js
@@ -88,3 +88,8 @@ type config.merge = (initialState: Collection, persistedState: Collection) => fi
 ```
 During initialization any persisted state is merged with the initialState passed in as an argument to `createStore`.
 The default strategy `extends` the initialState with the persistedState. Override this function if that doesn't work for you. **Note:** this is only required if you want to merge values within an immutable collection. If your values are immutable, but the object that holds them is not, the default strategy should work just fine.
+
+
+## Coedition Build Notes
+
+Run `make clean build` to build out the files for usage. Also, when adding a new version, just update the package.json file.
